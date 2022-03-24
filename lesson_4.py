@@ -20,8 +20,7 @@ def get_current_time():
     now_time = time.strftime("%H:%M:%S", t)
     return now_time
 
-list = []
-for i in range(1, 15):
-    times = get_current_time()
-    list.append(times)
+end = 40
+list = [get_current_time() for i in range(1, end)]
+
 
