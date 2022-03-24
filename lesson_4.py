@@ -8,9 +8,8 @@ list = [i for i in range(1,35)]
 
 # Функция генерации списка
 
-def get_list(begin, end) -> list:
-    return [i for i in range(begin,end)]
-
+def get_list(end) -> list:
+    return [i for i in range(end)]
 
 
 
@@ -25,4 +24,4 @@ list = []
 for i in range(1, 15):
     times = get_current_time()
     list.append(times)
-print(list)
+
