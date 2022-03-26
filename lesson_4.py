@@ -18,9 +18,10 @@ def get_list(end) -> list:
 def get_current_time():
     t = time.localtime()
     now_time = time.strftime("%H:%M:%S", t)
+    time.sleep(2)
     return now_time
 
-end = 40
+end = 5
 list = [get_current_time() for i in range(1, end)]
 
 
