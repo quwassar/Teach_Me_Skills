@@ -2,15 +2,19 @@
 
 def get_hello(func):
     """ Просто добавляет текст после вызова основной функции """
-    name = func()
-    print(f'Hello, {name}. This is decorator')
+    def wrapper():
+        name = func()
+        print(f'Hello, {name}. This is decorator')
+    return wrapper
 
 @ get_hello
 def get_name():
     """ Просит ввести имя пользователя """
     name = input("Input your name: ")
+    print(type(name))
     return name
 
+get_name()
 
 # Сделать lambda функцию
 
