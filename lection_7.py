@@ -42,27 +42,39 @@ def checker(func):
             if answer == 2:
 # Text file
                 # with open('users.txt', 'r') as users_file:
-                #     line = users_file.readlines()
-                #     if line[0] == f'{data[0]}\n':
-                #         if line[1] == f'{data[1]}\n':
+                #     lines = users_file.readlines()
+                #     for line in lines:
+                #         if lines[0] == f'{data[0]}\n':
+                #             if lines[1] == f'{data[1]}\n':
+                #                 print('Data success!')
+                #             else:
+                #                 print("Password incorrect")
+                #         else:
+                #             print('Email incorrect')
 # JSON file
                 # with open('users.json', 'r') as users_file:
                 #     data_file = json.loads(users_file.read())
-                #     if data[0] == data_file['email']:
-                #         if data[1] == data_file['passwd']:
+                #     for line in data_file:
+                #         if data[0] == line['email']:
+                #             if data[1] == line['passwd']:
+                #                 print('Data success!')
+                #                 i = False
+                #             else:
+                #                 print("Password incorrect")
+                #         else:
+                #             print('Email incorrect')
+
                 with open('users.csv', 'r') as users_file:
-                    data_file = csv.DictReader(users_file.read())
+                    data_file = csv.reader(users_file, delimiter=',')
                     for line in data_file:
-                        print(line)
-                    # if data[0] == data_file['email']:
-                    #     if data[1] == data_file['passwd']:
-                    #         print('Data success!')
-                    
-                    #         i = False
-                    #     else:
-                    #         print("Password incorrect")
-                    # else:
-                    #     print('Email incorrect')
+                        if data[0] == line[0]:
+                            if data[1] == line[1]:
+                                print('Data success!')
+                                i = False
+                            else:
+                                print("Password incorrect")
+                        else:
+                            print('Email incorrect')
     return wrapper
 
 
