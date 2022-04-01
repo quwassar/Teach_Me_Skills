@@ -12,8 +12,8 @@ def checker(func):
         print("2. Autorization")
         answer = input("Input your choise: ")
         answer = int(answer)
-        i = True
-        while i:
+        while_status = True
+        while while_status:
             data = func()
             if answer == 1:
                 if re.match(pattern, data[0]) is not None:
@@ -34,7 +34,7 @@ def checker(func):
                                 fieldnames = ['email', 'passwd']
                                 users_writer = csv.DictWriter(users_file, fieldnames=fieldnames)
                                 users_writer.writerow(data)
-                            i = False
+                            while_status = False
                         else:
                             print("Пароль некорректен, он должен быть больше 8 знаков и содержать большие буквы, цифры и спец знаки")
                 else:
@@ -70,7 +70,7 @@ def checker(func):
                         if data[0] == line[0]:
                             if data[1] == line[1]:
                                 print('Data success!')
-                                i = False
+                                while_status = False
                             else:
                                 print("Password incorrect")
                         else:
