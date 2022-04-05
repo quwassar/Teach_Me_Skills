@@ -1,8 +1,3 @@
-from asyncio import coroutines
-from distutils.ccompiler import gen_lib_options
-from platform import architecture
-
-
 class Processors():
     def __init__(self, architecture: str, **kwargs):
         self.architecture = architecture
