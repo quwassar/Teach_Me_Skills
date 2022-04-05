@@ -1,4 +1,4 @@
-class Processors():
+class Processor():
     def __init__(self, architecture: str, **kwargs):
         self.architecture = architecture
         super().__init__(**kwargs)
@@ -12,7 +12,7 @@ class ARM():
         self.type_cores = type_cores
         super().__init__(**kwargs)
 
-class Hybrid(Processors, ARM):
+class Hybrid(Processor, ARM):
     def __init__(self, brand: str, model: str, **kwargs):
         self.brand = brand
         self.model = model
