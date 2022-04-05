@@ -49,18 +49,17 @@ def open_txt(data):
 
 def open_json(data):
     with open('users.json', 'r') as users_file:
-        data_file = json.loads(users_file.read())
-        for line in data_file:
-            if data[0] == line['email']:
-                if data[1] == line['passwd']:
-                    print('Data success!')
-                    while_status = False
-                else:
-                    print("Password incorrect")
-                    while_status = True
+        data_file = json.load(users_file)
+        if data[0] == data_file['email']:
+            if data[1] == data_file['passwd']:
+                print('Data success!')
+                while_status = False
             else:
-                print('Email incorrect')
+                print("Password incorrect")
                 while_status = True
+        else:
+            print('Email incorrect')
+            while_status = True
     return while_status
 
 
@@ -111,6 +110,7 @@ def choiser(data, answer):
         if answer_open == 1:
             while_status = open_txt(data)
         elif answer_open == 2:
+            print(data, type(data))
             while_status = open_json(data)
         elif answer_open == 3:
             while_status = open_csv(data)
@@ -121,7 +121,7 @@ def choiser(data, answer):
 
 
 def checker(func):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print("""1. Registration \n2. Autorization""")
         answer = int(input("Input your choise: "))
         data = func()
@@ -133,12 +133,11 @@ def checker(func):
                 print(e)
     return wrapper
 
-
 @checker
 def input_email():
     email = input("Input your email: ")
     password = input('Input your password: ')
-    return email, password
+    return [email, password]
 
 
 input_email()
