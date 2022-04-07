@@ -14,17 +14,27 @@ class Processor:
             print('This processor is fresh')
         else:
             print('Hm, see more actuality model')
-    
-    @classmethod
-    def change_release_year(cls):
-        cls.release_year: str
 
+class Power:
+    default_average = '120 W'
+
+    @classmethod
+    def change_average(cls):
+        cls.default_average = '240 W'
+    
 
 intel_i7 = Processor('Coffee Lake i7', 'Intel', 2018)
 intel_i9 = Processor('Rocket Lake i9', 'Intel', 2021)
 
 print(Processor.fresh_status(intel_i7.release_year, intel_i9.release_year))
 
-# Понимаю, что высосано из пальца. Хз, как правильнее в dataclass его использовать
+power = Power()
+print(power.default_average)
 
-Processor.change_release_year
+Power.change_average()
+
+power_1 = Power()
+
+print(power.default_average)
+
+
