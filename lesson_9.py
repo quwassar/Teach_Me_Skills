@@ -1,12 +1,10 @@
 from dataclasses import dataclass
-from datetime import datetime
-from pyexpat import model
 
 @dataclass 
 class Processor:
     model: str
     company: str
-    release_year: datetime
+    release_year: int
 
     @staticmethod
     def fresh_status(first_data, second_data):
