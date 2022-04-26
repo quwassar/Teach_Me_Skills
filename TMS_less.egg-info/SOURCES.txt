@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+TMS_less.egg-info/PKG-INFO
+TMS_less.egg-info/SOURCES.txt
+TMS_less.egg-info/dependency_links.txt
+TMS_less.egg-info/not-zip-safe
+TMS_less.egg-info/requires.txt
+TMS_less.egg-info/top_level.txt

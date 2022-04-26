@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: test-package-pypi
+Version: 0.1
+Summary: Only for lesson
+Home-page: http://github.com/storborg/funniest
+Author: Quwassar
+Author-email: quwassar@gmail.com
+License: MIT
+Keywords: lesson
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Text Processing :: Linguistic
+
+Only for lesson
+
