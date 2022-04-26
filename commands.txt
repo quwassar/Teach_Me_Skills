@@ -1,0 +1,27 @@
+CREATE TABLE students(
+    id INTEGER NOT NULL,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    course TEXT NOT NULL,
+    age INTEGER
+);
+
+CREATE TABLE auditory(
+    sudent_id INTEGER NOT NULL,
+    floor_number INTEGER NOT NULL,
+    auditory INTEGER NOT NULL,
+    place INTEGER NOT NULL
+    );
+
+INSERT INTO students(id, course, age, last_name, first_name) VALUES (1, 1, 22, 'Evgeniy', 'Afanasyev');
+INSERT INTO students(id, course, age, last_name, first_name) VALUES (2, 3, 24, 'Sergey', 'Prokhorov');
+INSERT INTO students(id, course, age, last_name, first_name) VALUES (3, 2, 23, 'Elizaveta', 'Koneva');
+
+INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (1, 2, 2, 15);
+INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (2, 3, 3, 8);
+INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (3, 2, 2, 5);
+
+SELECT students.id, students.last_name, auditory.auditory, auditory.place, auditory.floor_number FROM students,auditory WHERE students.id = auditory.sudent_id;
+select * from students inner join auditory on (students.id = auditory.sudent_id)
+
+
