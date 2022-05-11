@@ -40,3 +40,9 @@ FULL OUTHER JOIN auditoryes_students as2
 ON as2.student_id = s.id 
 WHERE s.id = 2
 OR as2.id is not null 
+
+
+
+UPDATE students 
+SET course = 2
+where age in (select age from students where age = 22)
