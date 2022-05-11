@@ -1,27 +1,42 @@
 CREATE TABLE students(
-    id INTEGER NOT NULL,
+    id INTEGER PRIMARY KEY,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     course TEXT NOT NULL,
     age INTEGER
 );
 
-CREATE TABLE auditory(
-    sudent_id INTEGER NOT NULL,
+CREATE TABLE auditoryes(
+    id INTEGER PRIMARY KEY,
     floor_number INTEGER NOT NULL,
     auditory INTEGER NOT NULL,
     place INTEGER NOT NULL
     );
 
+CREATE TABLE auditoryes_students(
+id INTEGER PRIMARY KEY,
+student_id INTEGER NOT NULL,
+auditory_id INTEGER NOT NULL,
+FOREIGN KEY (student_id) REFERENCES students(id), FOREIGN KEY (auditory_id) REFERENCES auditoryes(id)
+);
+
 INSERT INTO students(id, course, age, last_name, first_name) VALUES (1, 1, 22, 'Evgeniy', 'Afanasyev');
 INSERT INTO students(id, course, age, last_name, first_name) VALUES (2, 3, 24, 'Sergey', 'Prokhorov');
 INSERT INTO students(id, course, age, last_name, first_name) VALUES (3, 2, 23, 'Elizaveta', 'Koneva');
 
-INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (1, 2, 2, 15);
-INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (2, 3, 3, 8);
-INSERT INTO auditory (sudent_id, floor_number, auditory, place) VALUES (3, 2, 2, 5);
+INSERT INTO auditoryes (id, floor_number, auditory, place) VALUES (1, 2, 2, 15);
+INSERT INTO auditoryes (id, floor_number, auditory, place) VALUES (2, 3, 3, 8);
+INSERT INTO auditoryes (id, floor_number, auditory, place) VALUES (3, 2, 2, 5);
 
-SELECT students.id, students.last_name, auditory.auditory, auditory.place, auditory.floor_number FROM students,auditory WHERE students.id = auditory.sudent_id;
-select * from students inner join auditory on (students.id = auditory.sudent_id)
+INSERT INTO auditoryes_students (id, student_id, auditory_id) VALUES (1, 1, 1);
+INSERT INTO auditoryes_students (id, student_id, auditory_id) VALUES (2, 3, 1);
+INSERT INTO auditoryes_students (id, student_id, auditory_id) VALUES (3, 2, 2);
+
+SELECT id, first_name, last_name FROM students;
+
+SELECT s.id, last_name
+      FROM auditoryes_students as  sa
+INNER JOIN students s ON s.id = sa.student_id
+     WHERE sa.auditory_id = 1
 
 
