@@ -1,0 +1,48 @@
+CREATE TABLE courses(
+id INTEGER PRIMARY KEY,
+course TEXT NOT NULL,
+auditory_id INTEGER NOT NULL,
+FOREIGN KEY (auditory_id) REFERENCES auditoryes
+);
+
+INSERT INTO courses (id, course, auditory_id) VALUES (1, 'Mathemathic', 2);
+INSERT INTO courses (id, course, auditory_id) VALUES (2, 'Chemistry', 1);
+INSERT INTO courses (id, course, auditory_id) VALUES (3, 'Informatic', 3);
+
+SELECT * 
+	FROM courses c 
+LEFT JOIN auditoryes a on a.id = c.auditory_id
+	WHERE c.auditory_id = 2
+
+SELECT * 
+	FROM auditoryes_students as2  
+LEFT JOIN students s on as2.id = s.id
+	WHERE s.id  = 2
+
+SELECT *
+	FROM courses c 
+RIGHT JOIN auditoryes a 
+ON c.auditory_id = a.id
+
+SELECT c.course, a.floor_number  
+	FROM courses c 
+RIGHT JOIN auditoryes a 
+ON c.auditory_id = a.id 
+
+SELECT *
+	FROM students s 
+FULL OUTHER JOIN auditoryes_students as2  
+ON as2.student_id = s.id 
+
+SELECT *
+	FROM students s 
+FULL OUTHER JOIN auditoryes_students as2  
+ON as2.student_id = s.id 
+WHERE s.id = 2
+OR as2.id is not null 
+
+
+
+UPDATE students 
+SET course = 2
+where age in (select age from students where age = 22)
