@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Registration</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <form method="post">
+        <input type="hidden" class="form-control" value="{{ measure_id }}"
+               name="id_measure" id="id_measure" placeholder="<id>"><br>
+        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="John"><br>
+        <input type="text" class="form-control" name="last_name" id="last_name"placeholder="Walker"><br>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    </div>
+{% endblock %}
