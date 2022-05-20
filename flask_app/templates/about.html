@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for measure in measures %}
+<div class="container">
+  <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h3 class="my-0 font-weight-normal">{{ measure.name }}</h3>
+            </div>
+          <div class="card-body">
+              <ul class="list-unstyled mt-1 mb-0">
+                  <li>
+                      <h8 class="my-0 font-weight-normal">Users registered: {{ measure.users.count() }}</h8>
+                  </li>
+              </ul>
+          </div>
+          <div class="card-body">
+              <ul class="list-unstyled mt-1 mb-2">
+                  <li>
+                      {% if measure.users.all() %}
+                          {% for user in measure.users.all() %}
+                              <h6 class="my-0 font-weight-normal">{{ user.first_name }} {{ user.last_name }}</h6>
+                          {% endfor %}
+                  {% endif %}
+                  </li>
+              </ul>
+          </div>
+
+      </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock body %}
+
+
+
+
+{#{% for measure in measures %}#}
+{#<h3>{{ measure.name }}</h3>#}
+{#    {% if measure.users.all() %}#}
+{#    <p>Guests:</p>#}
+{#        <ul>#}
+{#            {% for user in measure.users.all() %}#}
+{#                <li>{{ user.name }} {{ user.surname }}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% endif %}#}
+{#    {% endfor %}#}
+

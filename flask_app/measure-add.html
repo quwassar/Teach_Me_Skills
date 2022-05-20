@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Registration</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <form method="post">
+        <input type="text" class="form-control" name="measure_name" id="measure_name" placeholder="Measure"><br>
+        <input type="text" class="form-control" name="description" id="description"placeholder="Description"><br>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    </div>
+{% endblock %}
